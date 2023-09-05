@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="form-box">
+        <form action="" method="POST">
+            <div class="username bar">
+                <img class="input-icon" src="{{ url_for('static', filename='images/user_icon.svg' )}}" alt="user">
+                <input type="text" class="input" id="inputUsername" placeholder="Username" name="username">
+            </div>
+            <div class="password bar">
+                <img class="input-icon" src="{{ url_for('static', filename='images/key_icon.svg' )}}" alt="password">
+                <input type="password" class="input" id="inputPw" placeholder="Password" name="password">
+            </div>
+            <button id="login_btn" class="input-btn" type="submit">Log In</button>
+            <div class="error-box" style="display: none"></div>
+            <p>Not a member yet? <a class="decorated_link" href="/register">Sign Up!</a></p>
+			{% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+            {{ message }}
+            {% endfor %}
+            {% endwith %}
+        </form>
+    </div>
+    
+{% endblock content %}

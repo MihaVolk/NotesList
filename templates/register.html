@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="form-box">
+	<form action="" method="POST">
+		<div class="username bar">
+			<img class="input-icon" src="{{ url_for('static', filename='images/user_icon.svg' )}}" alt="user">
+			<input type="text" class="input" id="inputUsername" placeholder="Username" name="username">
+		</div>
+		<div class="password bar">
+			<img class="input-icon" src="{{ url_for('static', filename='images/key_icon.svg' )}}" alt="password">
+			<input type="password" class="input" id="inputPw" placeholder="Password" name="password">
+		</div>
+		<div class="password_confirm bar">
+			<img class="input-icon" src="{{ url_for('static', filename='images/key_icon.svg' )}}" alt="password">
+			<input type="password" class="input" id="confirmPw" placeholder="Confirm password" name="password-rep">
+		</div>
+		<div class="error-box" style="display: none"></div>
+		<button id="signup_btn" class="input-btn" type="submit">Sign up</button>
+		{% with messages = get_flashed_messages() %}
+		{% for message in messages %}
+		{{ message }}
+		{% endfor %}
+		{% endwith %}
+	</form>
+</div>
+{% endblock content %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block scripts %}
+{{ super() }}
+<script src="//cdnjs.cloudflare.com/ajax/libs/list.js/2.3.1/list.min.js"></script>
+<script src="{{ url_for('static', filename='js/sorting.js') }}"></script>
+{% endblock scripts %}
+
+{% block content %}
+
+<form action="" method="POST" class="note-form">
+    <input type="text" name="title" placeholder="Type your title here..." required>
+    <input type="text" name="content" placeholder="Type your description here..." required>
+    <select name="priority">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select>
+    <input type="datetime-local" name="deadline">
+    <button type="submit">Add task</button>
+</form>
+
+<div id="mylist">
+    <input class="search" placeholder="Search" />
+    <button class="sort" data-sort="title">Sort by title</button>
+    <button class="sort" data-sort="priority">Sort by priority</button>
+    <button class="sort" data-sort="deadline">Sort by deadline</button>
+    <button class="sort" data-sort="created_at">Sort by created_at</button>
+<ul class="list">
+{% for note in notes %}
+<li>
+    <details close>
+    <summary>
+        <span class="title">{{ note[1] }}</span>
+        <span class="priority">priority:{{ note[-2] }}</span> 
+        <span class="deadline">{{ note[-3] }}</span>
+        <span class="created_at">{{ note[3] }}</span>
+    </summary>
+    <form action="/del_note" method="POST" class="note">
+        <h1>{{ note[2] }}</h1>
+        <input type="hidden" value={{ note[0] }} name="note_id">
+        <button class="del_note">Delete this note</button>
+    </form>
+    </details>
+</li>
+{% endfor %}
+</ul>
+</div>
+
+{% endblock content %}

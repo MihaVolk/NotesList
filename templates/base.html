@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	{% if title %}
+	<title>{{ title }}</title>
+	{% else %}
+	<title>Todo Project</title>
+	{% endif %}
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+	
+</head>
+<body>
+	<header>
+		<div class="logo"><a href="/"><img src="{{ url_for('static', filename='images/logo.svg' )}}" alt="Here is logo"><p>Todo Project</p></a></div>
+		<div class="topmenu">
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/notes">My notes</a></li>
+				{% if not current_user.is_anonymous %}
+				<li><a href="/profile/{{ current_user.user.username }}">Profile</a></li>
+				{% else %}
+				<li><a href="/login">Log In</a></li>
+				{% endif %}
+			</ul>
+		</div>
+	</header>
+	<div class="content">
+		{% block content %}
+			
+		{% endblock content%}
+	</div>
+	<footer></footer>
+</body>
+	{% block scripts %}
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	{% endblock scripts %}
+</html>

@@ -1,0 +1,149 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-size: 24px;
+}
+
+header {
+	width: 100%;
+	height: 60px;
+	background-color: rgb(255, 250, 176);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 20px;
+}
+
+a {
+	white-space: nowrap;
+	text-decoration: none;
+	color: black;	
+}
+
+.logo>a {
+	display: flex;	
+	align-items: center;
+	width: auto;
+}
+
+.logo>a>p {
+	margin-left: 10px;
+}
+
+.decorated_link {
+	color: darkmagenta;
+	text-decoration: underline;
+}
+
+.logo>a>img {
+	max-width: 40px;
+}
+
+.topmenu {
+	margin-right: 20px;
+}
+
+.topmenu > ul {
+	display: flex;
+	list-style-type: none;
+}
+
+.topmenu > ul > li {
+	margin-left: 30px;
+}
+
+.form-box {
+	display: flex;
+	justify-content: center;
+	padding-top: 150px;
+}
+
+.form-box>form{
+	display: flex;
+	flex-direction: column;
+}
+
+.form-box>form>div{
+	margin-top: 10px;
+}
+
+.bar {
+	display: flex;
+	align-items: center;
+	background-color: white;
+	border:1px solid #dcdcdc;
+	font-size: 1.5em;
+}
+
+.bar>* {
+	margin-left: 5px;
+	font-size: inherit;
+}
+
+.input {
+	outline: none;
+	border: none;
+}
+
+.input-btn {
+	margin-top: 15px;
+}
+
+.input-icon {
+	max-height: 0.75em;
+}
+
+
+.note {
+	background-color: #f8ffbc;
+	padding: 10px;
+	margin-bottom: 10px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.note h1 {
+	margin: 0;
+  }
+  
+.del_note {
+	background-color: #e74c3c;
+	color: #fff;
+	border: none;
+	padding: 5px 10px;
+	cursor: pointer;
+}
+
+.note-form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-bottom: 20px;
+  }
+  
+  .note-form input[type="text"] {
+	width: 300px;
+	padding: 10px;
+	font-size: 16px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	margin-right: 10px;
+  }
+  
+  .note-form button[type="submit"] {
+	background-color: #4CAF50;
+	color: #fff;
+	border: none;
+	padding: 10px 20px;
+	font-size: 16px;
+	border-radius: 4px;
+	cursor: pointer;
+  }
+  
+  .note-form button[type="submit"]:hover {
+	background-color: #45a049;
+  }
+
+
